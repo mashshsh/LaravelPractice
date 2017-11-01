@@ -17,6 +17,18 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    {!! Form::label('done', 'ステータス', ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-6">
+                        {!! Form::select('done', [false => '未', true => '完了'], $task->done, ['id' => 'task-done', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {!! Form::label('primary_level', '重要度', ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-6">
+                        {!! Form::select('primary_level', $priorities, $task->primary_level, ['id' => 'task-primary_level', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-6">
                         {!! Form::submit('タスク追加', ['class' => 'btn btn-default']) !!}
                     </div>

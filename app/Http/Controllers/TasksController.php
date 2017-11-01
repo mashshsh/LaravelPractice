@@ -11,7 +11,10 @@ class TasksController extends Controller
 {
   public function create()
   {
-    return view('tasks/create')->with('task', new Task());
+    $priorities = \App\Priority::orderBy('code','asc')->pluck('name', 'code');
+    //$priorities = $priorities -> prepend('優先度', '');
+
+    return view('tasks/create')->with('task', new Task())->with('priorities', $priorities);
   }
 
   public function store(Request $request)
@@ -24,8 +27,10 @@ class TasksController extends Controller
 
   public function index()
   {
-        $tasks = Task::orderBy('updated_at', 'desc')->get();
-        return view('tasks/index')->with('tasks', $tasks);
+
+      $priorities = \App\Priority::orderBy('code','asc')->pluck('name', 'code');
+      $tasks = Task::orderBy('updated_at', 'desc')->get();
+      return view('tasks/index')->with('tasks', $tasks)->with('priorities', $priorities);
   }
   public function show($id)
   {
@@ -35,7 +40,9 @@ class TasksController extends Controller
   public function edit($id)
   {
       $task = Task::find($id);
-      return view('tasks/edit')->with('task', $task);
+      $priorities = \App\Priority::orderBy('code','asc')->pluck('name', 'code');
+      //$priorities = $priorities -> prepend('優先度', '');
+      return view('tasks/edit')->with('task', $task)->with('priorities', $priorities);
   }
 
   public function update(Request $request, $id)

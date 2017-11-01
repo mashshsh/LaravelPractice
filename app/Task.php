@@ -14,6 +14,8 @@ class Task extends Model
     protected $fillable = [
         'name',
         'done',
+        'primary_level',
     ];
+
 
 }
