@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', '三郷商工会'),
 
     /*
     |--------------------------------------------------------------------------
@@ -181,6 +181,7 @@ return [
          * user Add
          */
         Collective\Html\HtmlServiceProvider::class,
+        Encore\Admin\AdminServiceProvider::class,
 
 
 
