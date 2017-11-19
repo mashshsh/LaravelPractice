@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Priority extends Model
 {
+      protected $primaryKey = "primary_level";
 
-      protected $primaryKey = "id";
-      public function tasks (){
-        return $this->hasMany('App\Task');
-      }
+      //public function task()
+      //{
+      //  return $this->belongsTo('App\Task', 'primary_level);
+      //}
 }

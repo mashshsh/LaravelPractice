@@ -17,5 +17,9 @@ class Task extends Model
         'primary_level',
     ];
 
+    public function priority()
+    {
+      return $this->hasOne('App\Priority', 'primary_level', 'primary_level');
+    }
 
 }

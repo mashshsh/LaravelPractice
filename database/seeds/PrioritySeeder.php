@@ -13,9 +13,9 @@ class PrioritySeeder extends Seeder
     {
         //初期データの投入
         $priorities = [
-          ['code' => 1, 'name' => '最高'],
-          ['code' => 2, 'name' => '中くらい'],
-          ['code' => 3, 'name' => '最低'],
+          ['primary_level' => 1, 'name' => '最高'],
+          ['primary_level' => 2, 'name' => '中くらい'],
+          ['primary_level' => 3, 'name' => '最低'],
         ];
         DB::table('priorities')->insert($priorities);
     }

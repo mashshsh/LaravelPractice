@@ -15,7 +15,7 @@ class PrioritiesMakeTable extends Migration
     {
         Schema::create('priorities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code')->default(0);
+            $table->string('primary_level')->default(0);
             $table->text('name');
             $table->timestamps();
         });

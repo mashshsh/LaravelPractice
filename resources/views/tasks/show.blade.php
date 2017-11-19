@@ -16,7 +16,7 @@
                 完了: {{ $task->done ? '完了' : '未' }}
             </div>
             <div>
-                重要度: {{ $priorities->name($task->primary_level)}}
+                重要度: {{ $priorities->name}}
             </div>
             <div>
                 {{ link_to_route('tasks.edit', '編集', $task->id, ['class' => 'btn btn-sm btn-default']) }}
