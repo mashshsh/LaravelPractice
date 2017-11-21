@@ -42,6 +42,13 @@
                     @endforeach
                 </tbody>
             </table>
+            <table>
+                <tbody>
+                    <tr>
+                      <td>{{ link_to_route('tasks.send', '送信', $tasks->id) }}</td>
+                    <tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

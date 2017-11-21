@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Task;
 use App\Priority;
+use Mail;
+use App\Mail\Contacted;
 use App\Http\Requests;
 
 class TasksController extends Controller
 {
+
   public function create()
   {
     $priorities = Priority::orderBy('primary_level','asc')->pluck('name', 'primary_level');
@@ -54,6 +57,9 @@ class TasksController extends Controller
       $task = Task::find($id);
       $task->fill($request->all());
       $task->save();
+
+      $this->send();
+
       return redirect()->route('tasks.index');
   }
 
@@ -61,6 +67,30 @@ class TasksController extends Controller
   {
       $task = Task::find($id);
       $task->delete();
+      return redirect()->route('tasks.index');
+  }
+
+
+  /**
+   * メール送信処理
+   * @param
+   * @return redirector       入力画面へリダイレクト
+   */
+  public function send()
+  {
+      $options = [
+        'from' => 'aaa@aaaa.aaa',
+        'from_jp' => 'ああ',
+        'to' => 'shuhei.yokomizo@gmail.com',
+        'subject' => 'テストメール',
+        'template' => 'emails.send.mail'
+      ];
+
+      $data = [
+        'aaa' => 'aaaaa'
+      ];
+
+      Mail::to($options['to'])->send(new Contacted($options, $data));
       return redirect()->route('tasks.index');
   }
 }
