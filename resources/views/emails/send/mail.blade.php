@@ -1,1 +1,1 @@
-{{ $data['aaa'] }}
+{{ $data['text'] }}

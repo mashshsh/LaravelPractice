@@ -70,7 +70,6 @@ class TasksController extends Controller
       return redirect()->route('tasks.index');
   }
 
-
   /**
    * メール送信処理
    * @param
@@ -79,15 +78,15 @@ class TasksController extends Controller
   public function send()
   {
       $options = [
-        'from' => 'aaa@aaaa.aaa',
-        'from_jp' => 'ああ',
+        'from' => 'contact@local-event.jp',
+        'from_jp' => '三郷商工会',
         'to' => 'shuhei.yokomizo@gmail.com',
         'subject' => 'テストメール',
         'template' => 'emails.send.mail'
       ];
 
       $data = [
-        'aaa' => 'aaaaa'
+        'text' => 'このメールはテストメールです。'
       ];
 
       Mail::to($options['to'])->send(new Contacted($options, $data));

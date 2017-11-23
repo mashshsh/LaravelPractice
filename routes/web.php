@@ -13,7 +13,7 @@
 
 Route::resource('tasks', 'TasksController');
 
-Route::get('tasks/send', 'TasksController@send')->name('tasks.send');
+//Route::get('tasks/send', 'TasksController@send')->name('tasks.send');
 
 Route::get('/', function () {
     return view('welcome');
