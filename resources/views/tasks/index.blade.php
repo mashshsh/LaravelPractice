@@ -42,6 +42,17 @@
                     @endforeach
                 </tbody>
             </table>
+            <table class="table table-striped task-table">
+                <tbody>
+                    <tr>
+                      <td>
+                        <a class="navbar-brand" href="{!! action('TasksController@sendMail') !!}">
+                            送信
+                        </a>
+                      </td>
+                    <tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

@@ -11,17 +11,16 @@
 |
 */
 
-Route::resource('tasks', 'TasksController');
-
-//Route::get('tasks/send', 'TasksController@send')->name('tasks.send');
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::resource('tasks', 'TasksController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('tasks/sendMail', ['uses' => 'TasksController@sendMail'])->name('tasks.sendMail');
+Route::get('contact/sendMail', ['uses' => 'ContactController@sendMail'])->name('contact.sendMail');
+
+Auth::routes();
 
 Route::get('admin', 'Admin\AdminController@index');
 Route::resource('admin/roles', 'Admin\RolesController');

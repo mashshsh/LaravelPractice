@@ -58,7 +58,7 @@ class TasksController extends Controller
       $task->fill($request->all());
       $task->save();
 
-      $this->send();
+      $this->sendMail();
 
       return redirect()->route('tasks.index');
   }
@@ -75,7 +75,7 @@ class TasksController extends Controller
    * @param
    * @return redirector       入力画面へリダイレクト
    */
-  public function send()
+  public function sendMail()
   {
       $options = [
         'from' => 'contact@local-event.jp',
@@ -90,6 +90,11 @@ class TasksController extends Controller
       ];
 
       Mail::to($options['to'])->send(new Contacted($options, $data));
-      return redirect()->route('tasks.index');
+
+
+      $priorities = Priority::orderBy('primary_level','asc')->pluck('name', 'primary_level');
+      //$priorities = $priorities -> prepend('優先度', '');
+
+      return view('tasks/create')->with('task', new Task())->with('priorities', $priorities);
   }
 }

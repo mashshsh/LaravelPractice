@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -182,6 +182,7 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Encore\Admin\AdminServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
 
 
@@ -235,6 +236,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        // user add
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
