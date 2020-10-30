@@ -78,9 +78,9 @@ class TasksController extends Controller
   public function sendMail()
   {
       $options = [
-        'from' => 'contact@local-event.jp',
-        'from_jp' => '三郷商工会',
-        'to' => 'shuhei.yokomizo@gmail.com',
+        'from' => '',
+        'from_jp' => '',
+        'to' => '',
         'subject' => 'テストメール',
         'template' => 'emails.send.mail'
       ];
